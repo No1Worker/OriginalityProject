@@ -11,4 +11,9 @@
     <color name="color_black">#333333</color>
 
     <color name="white">#ffffff</color>
+
+    <!-- 半透明 -->
+    <color name="translucence">#25000000</color>
+
+    <color name="transparent">#0000</color>
 </resources>
