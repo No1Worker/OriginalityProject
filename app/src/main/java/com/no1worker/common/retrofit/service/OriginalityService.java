@@ -25,7 +25,7 @@ public interface OriginalityService {
      * @return
      */
     @POST("/user/register.do")
-    Call<OriginalityBase<Void>> registerUser(@Field("phone") String phone,
+    Call<OriginalityBase<String>> registerUser(@Field("phone") String phone,
                                              @Field("password") String password,
                                              @Field("username") String username,
                                              @Field("email") String email,

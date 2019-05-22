@@ -13,9 +13,12 @@ import com.no1worker.common.widget.LoadingDialog;
 
 public class CommonActivity extends AppCompatActivity {
 
+    public Activity aty;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        aty = this;
     }
 
     private LoadingDialog loadingDialog;

@@ -21,14 +21,15 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="用户名："
+            android:text="手机号："
             android:textSize="16sp"/>
 
         <EditText
-            android:id="@+id/edtUserName"
+            android:id="@+id/edtPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请输入用户名"
+            android:hint="请输入手机号"
+            android:inputType="phone"
             />
     </LinearLayout>
     <LinearLayout
@@ -63,15 +64,18 @@
             android:text="登录"
             android:textSize="18sp"/>
 
-
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="注册"
-            android:textSize="18sp"/>
-
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="注册"
+        android:textSize="14sp"
+        android:clickable="true"
+        android:textColor="@color/color_orange"
+        android:autoLink="all"
+        />
 
 </LinearLayout>
