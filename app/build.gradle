@@ -9,10 +9,27 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        release {
+            storeFile file("../OriginalityKeyStore.jks")
+            storePassword "852123"
+            keyAlias "key0"
+            keyPassword "852123"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = "originality" + "_v${defaultConfig.versionName}_" + buildType.name + ".apk"
         }
     }
 }
