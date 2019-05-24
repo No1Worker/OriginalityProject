@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RatioImageView">
+        <attr name="ratio" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="NineGridAbstractLayout">
+        <!-- 图片之间间隙 -->
+        <attr name="sapcing" format="dimension"/>
+        <!-- 宽度占屏幕比例 -->
+        <attr name="widthscale" format="float"/>
+    </declare-styleable>
+</resources>

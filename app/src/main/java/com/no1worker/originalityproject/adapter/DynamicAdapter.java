@@ -6,11 +6,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.no1worker.common.widget.NineGridLayout;
 import com.no1worker.originalityproject.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import me.leefeng.lfrecyclerview.LFRecyclerViewAdapter;
@@ -41,7 +44,14 @@ public class DynamicAdapter extends RecyclerView.Adapter<DynamicAdapter.MyViewHo
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder viewHolder, int i) {
         String item = strList.get(i);
-        viewHolder.tvItem.setText(item);
+        viewHolder.tvUserName.setText("用户名" + item);
+        viewHolder.tvCreateTime.setText("2019-5-24 14:00");
+        List<String> url = new ArrayList<>();
+        for (int j = 0;j<6;j++){
+            url.add("xxx");
+        }
+        viewHolder.gridImage.setIsShowAll(true);
+        viewHolder.gridImage.setUrlList(url);
     }
 
     @Override
@@ -51,11 +61,19 @@ public class DynamicAdapter extends RecyclerView.Adapter<DynamicAdapter.MyViewHo
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tvItem;
+        private ImageView imvUserLogo;
+        private TextView tvUserName;
+        private TextView tvCreateTime;
+        private TextView tvContent;
+        private NineGridLayout gridImage;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvItem = itemView.findViewById(R.id.tvItem);
+            imvUserLogo = itemView.findViewById(R.id.imvUserLogo);
+            tvUserName = itemView.findViewById(R.id.tvUserName);
+            tvCreateTime = itemView.findViewById(R.id.tvCreateTime);
+            tvContent = itemView.findViewById(R.id.tvContent);
+            gridImage = itemView.findViewById(R.id.gridImage);
         }
     }
 }
