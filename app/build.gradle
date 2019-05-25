@@ -53,4 +53,7 @@ dependencies {
     implementation 'com.yanzhenjie:permission:1.1.2'
     implementation 'com.github.limxing:LFRecyclerView-Android:1.0.5'
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    implementation('com.github.CarGuo.RickText:textUtilsLib:v2.1.5'){
+        exclude group:'com.android.support'
+    }
 }

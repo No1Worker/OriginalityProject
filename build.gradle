@@ -31,7 +31,7 @@ ext {
     //Android configs
     configs = [
             compileSdkVersion: 28,
-            minSdkVersion    : 15,
+            minSdkVersion    : 16,
             targetSdkVersion : 28,
     ]
     //Android extras dependencies

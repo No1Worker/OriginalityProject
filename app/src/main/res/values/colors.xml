@@ -10,6 +10,8 @@
 
     <color name="color_black">#333333</color>
 
+    <color name="color_blue">#8483c0</color>
+
     <color name="white">#ffffff</color>
 
     <!-- 半透明 -->
