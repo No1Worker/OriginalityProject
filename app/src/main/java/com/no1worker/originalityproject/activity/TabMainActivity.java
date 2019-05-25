@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.no1worker.common.CommonActivity;
 import com.no1worker.originalityproject.R;
@@ -25,6 +29,8 @@ public class TabMainActivity extends CommonActivity {
     private ViewPager vpMainViewPager;
 
     private String[] titles = new String[]{"动态","我的"};
+
+    private int[] drawable = new int[]{R.drawable.tab_main_dynamic_selector,R.drawable.tab_main_person_center_selector};
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
@@ -53,7 +59,16 @@ public class TabMainActivity extends CommonActivity {
         fragmentAdapter = new FragmentAdapter(getSupportFragmentManager(),fragments);
         vpMainViewPager.setAdapter(fragmentAdapter);
         for (int i = 0; i < titles.length; i++) {
-            tblMainTab.getTabAt(i).setText(titles[i]);
+            tblMainTab.getTabAt(i).setCustomView(drawTabItemView(i));
         }
+    }
+
+    private View drawTabItemView(int position){
+        View tabView = LayoutInflater.from(this).inflate(R.layout.layout_tab_item,null);
+        TextView textView = tabView.findViewById(R.id.tvTabItem);
+        ImageView imageView = tabView.findViewById(R.id.imvTabItem);
+        textView.setText(titles[position]);
+        imageView.setImageResource(drawable[position]);
+        return tabView;
     }
 }

@@ -16,4 +16,7 @@
     <color name="translucence">#25000000</color>
 
     <color name="transparent">#0000</color>
+
+    <!-- 线条颜色 -->
+    <color name="layout_line_color">#d9d9d9</color>
 </resources>
