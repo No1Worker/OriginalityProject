@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <include layout="@layout/title_bar_layout"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.shuyu.textutillib.RichEditText
+            android:id="@+id/edtRichEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minLines="5"
+            />
+
+        <View
+            android:id="@+id/vLine"
+            android:layout_below="@id/edtRichEdit"
+            style="@style/spacing_1dp_line_style"
+            />
+
+        <LinearLayout
+            android:id="@+id/lltMoreCustom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/vLine"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imvEmoji"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:clickable="true"
+                android:src="@drawable/icon_emoji"
+                />
+
+        </LinearLayout>
+
+        <com.shuyu.textutillib.EmojiLayout
+            android:id="@+id/emojiLayout"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentBottom="true"
+            app:richIndicatorFocus="@drawable/rich_page_indicator_focused"
+            app:richIndicatorUnFocus="@drawable/rich_page_indicator_unfocused"
+            app:richMarginBottom="8dp"
+            app:richMarginTop="15dp">
+
+        </com.shuyu.textutillib.EmojiLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

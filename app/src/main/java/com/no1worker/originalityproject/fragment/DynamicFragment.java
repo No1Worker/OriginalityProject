@@ -1,5 +1,6 @@
 package com.no1worker.originalityproject.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -7,10 +8,14 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.no1worker.common.CommonFragment;
 import com.no1worker.originalityproject.R;
+import com.no1worker.originalityproject.activity.CreateDynamicActivity;
 import com.no1worker.originalityproject.adapter.DynamicAdapter;
+import com.shuyu.textutillib.SmileUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +34,9 @@ public class DynamicFragment extends CommonFragment implements LFRecyclerView.LF
 
     private DynamicAdapter adapter;
 
+    private TextView tvTitle;
+    private Button btnRightButton;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,10 +48,16 @@ public class DynamicFragment extends CommonFragment implements LFRecyclerView.LF
 
     private void findViews(View contentView) {
         rcvDynamicList = contentView.findViewById(R.id.rcvDynamicList);
+        tvTitle = contentView.findViewById(R.id.tvTitle);
+        btnRightButton = contentView.findViewById(R.id.btnRightButton);
     }
 
 
     private void initViews() {
+        tvTitle.setText("动态");
+        btnRightButton.setText("发布");
+        btnRightButton.setVisibility(View.VISIBLE);
+        initEmoji();
         /*设置属性*/
         rcvDynamicList.setLoadMore(true);//设置为可上拉加载,默认false,调用这个方法false可以去掉底部的“加载更多”
         rcvDynamicList.setAutoLoadMore(true);//设置滑动到底部自动加载,默认false
@@ -57,6 +71,14 @@ public class DynamicFragment extends CommonFragment implements LFRecyclerView.LF
         }
         adapter = new DynamicAdapter(activity,stringList);
         rcvDynamicList.setAdapter(adapter);
+
+        btnRightButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, CreateDynamicActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -77,6 +99,21 @@ public class DynamicFragment extends CommonFragment implements LFRecyclerView.LF
                 rcvDynamicList.stopLoadMore();
             }
         },2000);
+    }
+
+    /**
+     * 处理自己的表情
+     */
+    private void initEmoji() {
+        List<Integer> data = new ArrayList<>();
+        List<String> strings = new ArrayList<>();
+        for (int i = 1; i < 64; i++) {
+            int resId = getResources().getIdentifier("e" + i, "drawable", activity.getPackageName());
+            data.add(resId);
+            strings.add("[e" + i + "]");
+        }
+        /**初始化为自己的**/
+        SmileUtils.addPatternAll(SmileUtils.getEmoticons(), strings, data);
     }
 
 }
